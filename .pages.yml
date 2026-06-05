@@ -13,8 +13,7 @@ content:
     label: 記事
     type: collection
     path: content/posts
-    subfolders: true
-    filename: '{fields.slug}/index.md'   # 新規作成時は スラッグ/index.md を生成
+    filename: '{fields.slug}.md'   # 1記事 = 1ファイル（フラット）
     format: yaml-frontmatter
     view:
       primary: title
