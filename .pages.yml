@@ -2,9 +2,9 @@
 # 非エンジニアの編集者がブラウザから記事・固定ページを編集するための定義。
 # 保存すると Pages CMS がこのリポジトリに直接コミット → GitHub Actions が自動リビルド。
 
-media:
-  input: static/uploads      # アップロード画像の保存先（リポジトリ内）
-  output: /uploads           # 公開URL上のパス
+# media:
+#   input: static/uploads      # アップロード画像の保存先（リポジトリ内）
+#   output: /uploads           # 公開URL上のパス
 
 content:
   # ── 記事（発表募集 / 開催案内 / 委員構成 など）──────────────
