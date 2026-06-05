@@ -30,3 +30,15 @@ body { word-wrap: break-word; overflow-wrap: anywhere; }
 
 /* 「続きを読む」 */
 .more-link { font-weight: bold; }
+
+/* Pagefind 検索UI（旧サイト Twenty Twelve の配色に寄せる） */
+.pagefind-search {
+  --pagefind-ui-primary: #0a3dc9;
+  --pagefind-ui-text: #444;
+  --pagefind-ui-background: #fff;
+  --pagefind-ui-border: #dddddd;
+  --pagefind-ui-tag: #eef;
+  --pagefind-ui-border-radius: 4px;
+  --pagefind-ui-font: inherit;
+  margin-top: 16px;
+}

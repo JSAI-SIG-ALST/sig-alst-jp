@@ -1,0 +1,32 @@
+{{ define "content" }}
+<header class="archive-header">
+  <h1 class="archive-title">{{ .Title }}</h1>
+</header>
+
+{{/* Pagefind の検索UI。インデックスはビルド時(Pagefind)に /pagefind/ へ生成される */}}
+<link href="{{ "pagefind/pagefind-ui.css" | relURL }}" rel="stylesheet">
+<div id="search" class="pagefind-search"></div>
+<noscript><p>検索には JavaScript が必要です。</p></noscript>
+
+<script src="{{ "pagefind/pagefind-ui.js" | relURL }}"></script>
+<script>
+window.addEventListener("DOMContentLoaded", function () {
+  if (typeof PagefindUI === "undefined") return;
+  var ui = new PagefindUI({
+    element: "#search",
+    showImages: false,
+    showSubResults: true,
+    pageSize: 10,
+    translations: {
+      placeholder: "キーワードでサイト内を検索",
+      clear_search: "クリア",
+      load_more: "もっと見る",
+      search_label: "サイト内検索",
+      zero_results: "「[SEARCH_TERM]」に一致する結果はありませんでした"
+    }
+  });
+  var q = new URLSearchParams(location.search).get("q");
+  if (q) { ui.triggerSearch(q); }
+});
+</script>
+{{ end }}

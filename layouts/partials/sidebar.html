@@ -33,9 +33,8 @@
 
   <aside id="search-2" class="widget widget_search">
     <h3 class="widget-title">検索</h3>
-    <form role="search" method="get" class="search-form" action="https://www.google.com/search" onsubmit="this.q.value='site:sig-alst.jp '+this.qraw.value;">
-      <input type="hidden" name="q" />
-      <input type="search" class="search-field" name="qraw" placeholder="検索 …" />
+    <form role="search" method="get" class="search-form" action="{{ "/search/" | relURL }}">
+      <input type="search" class="search-field" name="q" placeholder="検索 …" />
       <input type="submit" class="search-submit" value="検索" />
     </form>
   </aside>
