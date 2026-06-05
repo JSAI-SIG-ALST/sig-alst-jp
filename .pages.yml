@@ -35,56 +35,60 @@ content:
       # 本文はプログラムの改行や email ショートコードを含むため、崩れない Markdown ソース編集
       - { name: body, label: 本文（Markdown / ショートコード可）, type: code, options: { format: markdown } }
 
-  # ── 固定ページ（個別ファイル）────────────────────────────────
-  - name: page-about
-    label: 「ALST研究会について」ページ
-    type: file
-    path: content/about/index.md
-    format: yaml-frontmatter
-    fields:
-      - { name: title, label: タイトル, type: string }
-      - { name: date,  label: 日付,     type: date }
-      # 装飾見出しが生HTMLのため rich-text では表示できない → ソース(Markdown/HTML)編集
-      - { name: body,  label: 本文（Markdown / HTMLソース）, type: code, options: { format: markdown } }
+  # ── 固定ページ（1メニュー「固定ページ」にまとめる: type: group）──────
+  - name: pages
+    label: 固定ページ
+    type: group
+    items:
+      - name: page-about
+        label: ALST研究会について
+        type: file
+        path: content/about/index.md
+        format: yaml-frontmatter
+        fields:
+          - { name: title, label: タイトル, type: string }
+          - { name: date,  label: 日付,     type: date }
+          # 装飾見出しが生HTMLのため rich-text では表示不可 → ソース(Markdown/HTML)編集
+          - { name: body,  label: 本文（Markdown / HTMLソース）, type: code, options: { format: markdown } }
 
-  - name: page-awards
-    label: 「表彰」ページ
-    type: file
-    path: content/awards/index.md
-    format: yaml-frontmatter
-    fields:
-      - { name: title, label: タイトル, type: string }
-      - { name: date,  label: 日付,     type: date }
-      # 受賞一覧が生HTMLの表のため rich-text では表示できない → ソース(Markdown/HTML)編集
-      - { name: body,  label: 本文（Markdown / HTMLソース・受賞表）, type: code, options: { format: markdown } }
+      - name: page-awards
+        label: 表彰
+        type: file
+        path: content/awards/index.md
+        format: yaml-frontmatter
+        fields:
+          - { name: title, label: タイトル, type: string }
+          - { name: date,  label: 日付,     type: date }
+          # 受賞一覧が生HTMLの表のため rich-text では表示不可 → ソース(Markdown/HTML)編集
+          - { name: body,  label: 本文（Markdown / HTMLソース・受賞表）, type: code, options: { format: markdown } }
 
-  - name: page-committee
-    label: 「委員構成」ページ
-    type: file
-    path: content/committee/index.md
-    format: yaml-frontmatter
-    fields:
-      - { name: title, label: タイトル, type: string }
-      - { name: date,  label: 日付,     type: date }
-      - { name: body,  label: 本文（Markdown / ショートコード可）, type: code, options: { format: markdown } }
+      - name: page-committee
+        label: 委員構成
+        type: file
+        path: content/committee/index.md
+        format: yaml-frontmatter
+        fields:
+          - { name: title, label: タイトル, type: string }
+          - { name: date,  label: 日付,     type: date }
+          - { name: body,  label: 本文（Markdown / ショートコード可）, type: code, options: { format: markdown } }
 
-  - name: page-contact
-    label: 「お問い合わせ」ページ
-    type: file
-    path: content/contact/index.md
-    format: yaml-frontmatter
-    fields:
-      - { name: title, label: タイトル, type: string }
-      - { name: date,  label: 日付,     type: date }
-      # 本文に cta ショートコードを含むため rich-text ではなくソース編集
-      - { name: body,  label: 本文（cta ショートコードを含む）, type: code, options: { format: markdown } }
+      - name: page-contact
+        label: お問い合わせ
+        type: file
+        path: content/contact/index.md
+        format: yaml-frontmatter
+        fields:
+          - { name: title, label: タイトル, type: string }
+          - { name: date,  label: 日付,     type: date }
+          # 本文に cta ショートコードを含むため rich-text ではなくソース編集
+          - { name: body,  label: 本文（cta ショートコードを含む）, type: code, options: { format: markdown } }
 
-  - name: page-links
-    label: 「関連サイトへのリンク」ページ
-    type: file
-    path: content/links/index.md
-    format: yaml-frontmatter
-    fields:
-      - { name: title, label: タイトル, type: string }
-      - { name: date,  label: 日付,     type: date }
-      - { name: body,  label: 本文（Markdown / ショートコード可）, type: code, options: { format: markdown } }
+      - name: page-links
+        label: 関連サイトへのリンク
+        type: file
+        path: content/links/index.md
+        format: yaml-frontmatter
+        fields:
+          - { name: title, label: タイトル, type: string }
+          - { name: date,  label: 日付,     type: date }
+          - { name: body,  label: 本文（Markdown / ショートコード可）, type: code, options: { format: markdown } }
