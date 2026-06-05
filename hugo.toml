@@ -1,0 +1,59 @@
+baseURL = "https://sig-alst.jp/"
+defaultContentLanguage = "ja"
+title = "先進的学習科学と工学研究会(ALST)"
+hasCJKLanguage = true
+enableEmoji = true
+enableRobotsTXT = true
+
+[languages]
+  [languages.ja]
+    label = "日本語"
+    locale = "ja_JP"
+    weight = 1
+
+# 旧サイト同様、Twenty Twelve 風の見た目。本文・レイアウトは layouts/ で再現。
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  description = "SIG on Advanced Learning Science and Technology"
+
+[permalinks]
+  posts = "/:slug/"   # スラッグ=バンドルのフォルダ名（各記事 front matter の slug）。map.json の飛び先と一致
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+# 上部ナビ（旧サイトのメニューと同一）
+[[menu.main]]
+  name = "ホーム"
+  url = "/"
+  weight = 1
+[[menu.main]]
+  name = "ALST研究会について"
+  url = "/about/"
+  weight = 2
+[[menu.main]]
+  name = "表彰"
+  url = "/awards/"
+  weight = 3
+[[menu.main]]
+  name = "委員構成"
+  url = "/committee/"
+  weight = 4
+[[menu.main]]
+  name = "お問い合わせ"
+  url = "/contact/"
+  weight = 5
+[[menu.main]]
+  name = "関連サイトへのリンク"
+  url = "/links/"
+  weight = 6
+
+[markup.goldmark.renderer]
+  unsafe = true   # WP由来の本文に生HTMLが含まれるため許可
+
+[services.rss]
+  limit = 20

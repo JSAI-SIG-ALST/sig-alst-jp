@@ -1,0 +1,43 @@
+<div id="secondary" class="widget-area" role="complementary">
+
+  <aside id="nav_menu-2" class="widget widget_nav_menu">
+    <h3 class="widget-title">ALST研究会</h3>
+    <div class="menu-container">
+      <ul>
+        <li class="menu-item"><a href="{{ "/about/" | relURL }}">ALST研究会について</a></li>
+        <li class="menu-item"><a href="{{ "/awards/" | relURL }}">表彰</a></li>
+        <li class="menu-item"><a href="{{ "/committee/" | relURL }}">委員構成</a></li>
+        <li class="menu-item"><a href="{{ "/contact/" | relURL }}">お問い合わせ</a></li>
+        <li class="menu-item"><a href="{{ "/links/" | relURL }}">関連サイトへのリンク</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <aside id="recent-posts-2" class="widget widget_recent_entries">
+    <h3 class="widget-title">最近の投稿</h3>
+    <ul>
+      {{ range first 10 (where site.RegularPages "Section" "posts") }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+  </aside>
+
+  <aside id="categories-2" class="widget widget_categories">
+    <h3 class="widget-title">カテゴリー</h3>
+    <ul>
+      {{ range $name, $taxonomy := site.Taxonomies.categories }}
+      <li class="cat-item"><a href="{{ ("/categories/" | relURL) }}{{ $name | urlize }}/">{{ index hugo.Data.categories $name | default $name }}</a>&nbsp;({{ len $taxonomy }})</li>
+      {{ end }}
+    </ul>
+  </aside>
+
+  <aside id="search-2" class="widget widget_search">
+    <h3 class="widget-title">検索</h3>
+    <form role="search" method="get" class="search-form" action="https://www.google.com/search" onsubmit="this.q.value='site:sig-alst.jp '+this.qraw.value;">
+      <input type="hidden" name="q" />
+      <input type="search" class="search-field" name="qraw" placeholder="検索 …" />
+      <input type="submit" class="search-submit" value="検索" />
+    </form>
+  </aside>
+
+</div><!-- #secondary -->

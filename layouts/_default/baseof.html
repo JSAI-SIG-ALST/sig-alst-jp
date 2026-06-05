@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="{{ site.Language.Lang }}">
+{{ partial "head.html" . }}
+<body class="custom-font-enabled{{ if .IsHome }} home blog{{ else }} single{{ end }}">
+<div id="page" class="hfeed site">
+
+  {{ partial "header.html" . }}
+
+  <div id="main" class="wrapper">
+    <div id="primary" class="site-content">
+      <div id="content" role="main">
+        {{ block "content" . }}{{ end }}
+      </div><!-- #content -->
+    </div><!-- #primary -->
+
+    {{ partial "sidebar.html" . }}
+  </div><!-- #main .wrapper -->
+
+  {{ partial "footer.html" . }}
+
+</div><!-- #page -->
+</body>
+</html>

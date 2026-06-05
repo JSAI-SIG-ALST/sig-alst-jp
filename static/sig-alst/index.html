@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>リダイレクト中…</title>
+<script>
+const MAP = {
+  "p": {
+    "16": "/committee-fy2013/",
+    "34": "/alst69cfp/",
+    "42": "/alst69program/",
+    "57": "/awards/",
+    "60": "/alst68program/",
+    "67": "/alst68cfp/",
+    "96": "/alst67program/",
+    "101": "/alst70cfp/",
+    "131": "/alst70program/",
+    "137": "/alst71cfp/",
+    "151": "/committee-fy2014/",
+    "161": "/alst71program/",
+    "166": "/alst71program-rev/",
+    "171": "/alst72cfp/",
+    "182": "/alst72program/",
+    "189": "/alst73cfp/",
+    "202": "/alst73program/",
+    "236": "/committee-fy2015/",
+    "238": "/alst74cfp/",
+    "243": "/alst74program/",
+    "257": "/alst75cfp/",
+    "267": "/alst75program/",
+    "274": "/alst76cfp/",
+    "286": "/alst76program/",
+    "294": "/committee-fy2016/",
+    "298": "/alst77cfp/",
+    "306": "/alst77program/",
+    "312": "/alst78cfp/",
+    "325": "/alst78program/",
+    "330": "/alst79cfp/",
+    "341": "/alst79program/",
+    "348": "/committee-fy2017/",
+    "350": "/alst80cfp/",
+    "367": "/alst80program/",
+    "370": "/alst81cfp/",
+    "379": "/alst81program/",
+    "385": "/alst82cfp/",
+    "394": "/alst82program/",
+    "397": "/",
+    "409": "/committee-fy2018/",
+    "421": "/alst83cfp/",
+    "454": "/alst83program/",
+    "496": "/alst84cfp/",
+    "525": "/alst84program/",
+    "543": "/alst85program/",
+    "550": "/alst85cfp/",
+    "575": "/alst85program/",
+    "601": "/committee-fy2019/",
+    "604": "/alst86cfp/",
+    "679": "/alst86program/",
+    "694": "/alst87cfp/",
+    "728": "/alst87program/",
+    "754": "/alst88program/",
+    "757": "/alst88cfp/",
+    "794": "/alst88program/",
+    "828": "/committee-fy2020/",
+    "837": "/alst89cfp/",
+    "957": "/alst89program/",
+    "997": "/alst90cfp/",
+    "1005": "/alst90program/",
+    "1019": "/alst91cfp/",
+    "1046": "/alst91program/",
+    "1072": "/alst92cfp/",
+    "1081": "/committee-fy2021/",
+    "1097": "/alst92program/",
+    "1124": "/alst93cfp/",
+    "1149": "/alst93program/",
+    "1252": "/alst94cfp/",
+    "1267": "/alst94program/",
+    "1284": "/committee-fy2022/",
+    "1288": "/alst95cfp/",
+    "1301": "/alst95program/",
+    "1321": "/alst96cfp/",
+    "1347": "/alst96program/",
+    "1380": "/alst97cfp/",
+    "1390": "/alst97program/",
+    "1408": "/alst98cfp/",
+    "1411": "/committee-fy2023/",
+    "1438": "/alst98program/",
+    "1448": "/alst99cfp/",
+    "1457": "/alst99program/",
+    "1462": "/alst100cfp/",
+    "1509": "/alst100program/",
+    "1556": "/committee-fy2024/",
+    "1559": "/alst101cfp/",
+    "1582": "/alst101program/",
+    "1590": "/alst102cfp/",
+    "1598": "/alst102program/",
+    "1610": "/alst103cfp/",
+    "1633": "/alst103program/",
+    "1655": "/committee-fy2025/",
+    "1673": "/alst104cfp/",
+    "1680": "/alst104program/",
+    "1697": "/alst105cfp/",
+    "1711": "/alst105program/",
+    "1721": "/alst106cfp/",
+    "1741": "/alst106program/",
+    "1757": "/committee-fy2026/",
+    "1771": "/alst107cfp/"
+  },
+  "page_id": {
+    "7": "/about/",
+    "47": "/links/",
+    "50": "/contact/",
+    "471": "/committee/",
+    "616": "/awards/"
+  }
+};
+const q = new URLSearchParams(location.search);
+const p = q.get("p"), pid = q.get("page_id");
+let dest = "/";
+if (p && MAP.p[p]) dest = MAP.p[p];
+else if (pid && MAP.page_id[pid]) dest = MAP.page_id[pid];
+location.replace(dest);
+</script>
+</head>
+<body><p>ページが移動しました。<a href="/">トップへ</a></p></body>
+</html>

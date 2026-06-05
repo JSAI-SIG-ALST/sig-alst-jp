@@ -1,0 +1,13 @@
+{{ define "content" }}
+  <header class="archive-header">
+    <h1 class="archive-title">
+      {{- if eq .Kind "term" }}{{ index hugo.Data.categories .Title | default .Title }}{{ else }}{{ .Title }}{{ end -}}
+    </h1>
+  </header>
+  {{ with .Content }}<div class="entry-content">{{ . }}</div>{{ end }}
+  {{ $paginator := .Paginate .Pages }}
+  {{ range $paginator.Pages }}
+    {{ partial "post-summary.html" . }}
+  {{ end }}
+  {{ partial "pagination.html" $paginator }}
+{{ end }}

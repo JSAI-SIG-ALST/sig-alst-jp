@@ -1,0 +1,18 @@
+<header id="masthead" class="site-header" role="banner">
+  <hgroup>
+    <h1 class="site-title"><a href="{{ "/" | relURL }}" title="{{ site.Title }}" rel="home">{{ site.Title }}</a></h1>
+    <h2 class="site-description">{{ site.Params.description }}</h2>
+  </hgroup>
+
+  <nav id="site-navigation" class="main-navigation" role="navigation">
+    <button class="menu-toggle">メニュー</button>
+    <a class="assistive-text" href="#content" title="コンテンツへスキップ">コンテンツへスキップ</a>
+    <div class="menu-container">
+      <ul id="menu-main" class="nav-menu">
+        {{ range site.Menus.main }}
+        <li{{ if $.IsMenuCurrent "main" . }} class="current-menu-item"{{ end }}><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    </div>
+  </nav><!-- #site-navigation -->
+</header><!-- #masthead -->

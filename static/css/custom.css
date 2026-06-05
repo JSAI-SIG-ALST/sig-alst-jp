@@ -1,0 +1,32 @@
+/* 旧サイト(Twenty Twelve)の見た目を保ちつつ、Hugo移行で必要な微調整のみ */
+
+/* ヘッダーの文字色：旧サイトの WordPress カスタマイザー設定（header text color = #0a3dc9）を再現。
+   style.css のデフォルト(#515151)を上書きし、タイトル・タグラインを旧サイトと同じ青に揃える。 */
+.site-header h1 a,
+.site-header h2 {
+  color: #0a3dc9;
+}
+
+/* 和文の折り返し・読みやすさ */
+body { word-wrap: break-word; overflow-wrap: anywhere; }
+
+/* 本文中の画像・表がカラムをはみ出さないように */
+.entry-content img,
+.widget img { max-width: 100%; height: auto; }
+
+/* WP由来の表組みを罫線付きで表示 */
+.entry-content table { border-collapse: collapse; margin: 0 0 24px; width: 100%; }
+.entry-content th,
+.entry-content td { border: 1px solid #ddd; padding: 6px 10px; vertical-align: top; }
+.entry-content th { background: #f7f7f7; }
+
+/* アーカイブ/カテゴリ見出し */
+.archive-header { margin: 0 0 24px; padding-bottom: 12px; border-bottom: 1px solid #ededed; }
+.archive-title { font-size: 20px; font-weight: normal; }
+
+/* サイドバー検索フォーム（Twenty Twelve 風） */
+.search-form .search-field { width: 60%; padding: 4px 6px; }
+.search-form .search-submit { padding: 4px 10px; }
+
+/* 「続きを読む」 */
+.more-link { font-weight: bold; }

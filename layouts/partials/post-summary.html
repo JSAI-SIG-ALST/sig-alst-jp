@@ -1,0 +1,13 @@
+<article class="post hentry">
+  <header class="entry-header">
+    <h1 class="entry-title"><a href="{{ .RelPermalink }}" rel="bookmark">{{ .Title }}</a></h1>
+  </header>
+  <div class="entry-content">
+    {{ .Summary }}
+    {{ if .Truncated }}<p><a class="more-link" href="{{ .RelPermalink }}">続きを読む <span class="meta-nav">»</span></a></p>{{ end }}
+  </div>
+  <footer class="entry-meta">
+    <span class="entry-date">{{ .Date.Format "2006年1月2日" }}</span>
+    {{ with .Params.categories }} <span class="cat-links">{{ range . }}<a href="{{ ("/categories/" | relURL) }}{{ . | urlize }}/" rel="category tag">{{ index hugo.Data.categories . | default . }}</a> {{ end }}</span>{{ end }}
+  </footer>
+</article>
