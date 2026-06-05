@@ -44,7 +44,8 @@ content:
     fields:
       - { name: title, label: タイトル, type: string }
       - { name: date,  label: 日付,     type: date }
-      - { name: body,  label: 本文（装飾見出しのHTMLを含む。編集時は注意）, type: rich-text }
+      # 装飾見出しが生HTMLのため rich-text では表示できない → ソース(Markdown/HTML)編集
+      - { name: body,  label: 本文（Markdown / HTMLソース）, type: code }
 
   - name: page-awards
     label: 「表彰」ページ
@@ -54,7 +55,8 @@ content:
     fields:
       - { name: title, label: タイトル, type: string }
       - { name: date,  label: 日付,     type: date }
-      - { name: body,  label: 本文（受賞一覧の表を含む）, type: rich-text }
+      # 受賞一覧が生HTMLの表のため rich-text では表示できない → ソース(Markdown/HTML)編集
+      - { name: body,  label: 本文（Markdown / HTMLソース・受賞表）, type: code }
 
   - name: page-committee
     label: 「委員構成」ページ
