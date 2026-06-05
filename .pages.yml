@@ -67,7 +67,7 @@ content:
     fields:
       - { name: title, label: タイトル, type: string }
       - { name: date,  label: 日付,     type: date }
-      - { name: body,  label: 本文, type: rich-text }
+      - { name: body,  label: 本文（Markdown / ショートコード可）, type: code, options: { format: markdown } }
 
   - name: page-contact
     label: 「お問い合わせ」ページ
@@ -88,4 +88,4 @@ content:
     fields:
       - { name: title, label: タイトル, type: string }
       - { name: date,  label: 日付,     type: date }
-      - { name: body,  label: 本文, type: rich-text }
+      - { name: body,  label: 本文（Markdown / ショートコード可）, type: code, options: { format: markdown } }
