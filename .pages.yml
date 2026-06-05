@@ -1,0 +1,98 @@
+# Pages CMS 設定 — https://pagescms.org
+# 非エンジニアの編集者がブラウザから記事・固定ページを編集するための定義。
+# 保存すると Pages CMS がこのリポジトリに直接コミット → GitHub Actions が自動リビルド。
+
+media:
+  input: static/uploads      # アップロード画像の保存先（リポジトリ内）
+  output: /uploads           # 公開URL上のパス
+
+content:
+  # ── 記事（発表募集 / 開催案内 / 委員構成 など）──────────────
+  # 画像同居のリーフバンドル: content/posts/<スラッグ>/index.md
+  - name: posts
+    label: 記事
+    type: collection
+    path: content/posts
+    subfolders: true
+    filename: '{fields.slug}/index.md'   # 新規作成時は スラッグ/index.md を生成
+    format: yaml-frontmatter
+    view:
+      primary: title
+      sort: date
+      order: desc
+      fields: [title, date, draft]
+    fields:
+      - { name: slug,  label: スラッグ（URL・半角英数とハイフン）, type: string, required: true }
+      - { name: title, label: タイトル, type: string, required: true }
+      - { name: date,  label: 日付,     type: date,   required: true }
+      - { name: draft, label: 下書き,   type: boolean, default: false }
+      - name: categories
+        label: カテゴリ
+        type: select
+        list: true
+        options:
+          values: [cfp, program, committee]
+      - { name: tags, label: タグ, type: string, list: true }
+      - { name: body, label: 本文, type: rich-text }
+
+  # ── 固定ページ（個別ファイル）────────────────────────────────
+  - name: page-about
+    label: 「ALST研究会について」ページ
+    type: file
+    path: content/about/index.md
+    format: yaml-frontmatter
+    fields:
+      - { name: title, label: タイトル, type: string }
+      - { name: date,  label: 日付,     type: date }
+      - { name: body,  label: 本文（装飾見出しのHTMLを含む。編集時は注意）, type: rich-text }
+
+  - name: page-awards
+    label: 「表彰」ページ
+    type: file
+    path: content/awards/index.md
+    format: yaml-frontmatter
+    fields:
+      - { name: title, label: タイトル, type: string }
+      - { name: date,  label: 日付,     type: date }
+      - { name: body,  label: 本文（受賞一覧の表を含む）, type: rich-text }
+
+  - name: page-committee
+    label: 「委員構成」ページ
+    type: file
+    path: content/committee/index.md
+    format: yaml-frontmatter
+    fields:
+      - { name: title, label: タイトル, type: string }
+      - { name: date,  label: 日付,     type: date }
+      - { name: body,  label: 本文, type: rich-text }
+
+  - name: page-contact
+    label: 「お問い合わせ」ページ
+    type: file
+    path: content/contact/index.md
+    format: yaml-frontmatter
+    fields:
+      - { name: title, label: タイトル, type: string }
+      - { name: date,  label: 日付,     type: date }
+      - { name: body,  label: 本文, type: rich-text }
+
+  - name: page-links
+    label: 「関連サイトへのリンク」ページ
+    type: file
+    path: content/links/index.md
+    format: yaml-frontmatter
+    fields:
+      - { name: title, label: タイトル, type: string }
+      - { name: date,  label: 日付,     type: date }
+      - { name: body,  label: 本文, type: rich-text }
+
+  - name: page-schedule
+    label: 「次回以降の研究会開催予定」ページ（非公開）
+    type: file
+    path: content/schedule/index.md
+    format: yaml-frontmatter
+    fields:
+      - { name: title, label: タイトル, type: string }
+      - { name: date,  label: 日付,     type: date }
+      - { name: draft, label: 下書き（公開する場合はOFF）, type: boolean, default: true }
+      - { name: body,  label: 本文, type: rich-text }
