@@ -33,7 +33,8 @@ content:
         options:
           values: [cfp, program, committee]
       - { name: tags, label: タグ, type: string, list: true }
-      - { name: body, label: 本文, type: rich-text }
+      # 本文はプログラムの改行や email ショートコードを含むため、崩れない Markdown ソース編集
+      - { name: body, label: 本文（Markdown / ショートコード可）, type: code, options: { format: markdown } }
 
   # ── 固定ページ（個別ファイル）────────────────────────────────
   - name: page-about

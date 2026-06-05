@@ -51,7 +51,7 @@ categories:
     -   **参加申込締切：2026年 1月29日(木)**  
         ※発表者の方も参加・宿泊申込が必要となります．
 10.  【お問い合わせ先】
-     -   山本 頼弥 (静岡大学) (![contact](images/contact-A-T-300x28.png))
+     -   山本 頼弥 (静岡大学) ({{< email "contact@sig-alst.jp" >}})
 11.  【入会のご案内】
      -   人工知能学会の会員でない方は，この機会に是非入会下さい．オンライン入会は[こちら](https://www.ai-gakkai.or.jp/about/membership/ "オンライン入会")から．
      -   ALST研究会（第１種研究会）の入会は[こちら](https://www.ai-gakkai.or.jp/sig/announce/sig-registeration/ "研究会入会")を参照してください．  

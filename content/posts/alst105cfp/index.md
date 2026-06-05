@@ -35,7 +35,7 @@ categories:
     -   ~発表申込締切：2025年 9月14日(日)~ → **2025年9月21日(日) ※延長しました**
     -   原稿提出締切：2025年10月10日(金)（出版物の準備がありますので一切の延長はありません）
 9.  【お問い合わせ先】
-    -   古池 謙人 (東京理科大学) (![contact](images/contact-A-T-300x28.png))
+    -   古池 謙人 (東京理科大学) ({{< email "contact@sig-alst.jp" >}})
 10.  【入会のご案内】
      -   人工知能学会の会員でない方は，この機会に是非入会下さい．オンライン入会は[こちら](https://www.ai-gakkai.or.jp/about/membership/ "オンライン入会")から．
      -   ALST研究会（第１種研究会）の入会は[こちら](https://www.ai-gakkai.or.jp/sig/announce/sig-registeration/ "研究会入会")を参照してください．  

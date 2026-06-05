@@ -1,0 +1,6 @@
+{{- /* インラインのメール（canvas画像＋クリックでコピー）。
+       使い方: {{< email "contact@sig-alst.jp" >}}  */ -}}
+{{- $email := or (.Get 0) (.Get "address") -}}
+{{- $parts := split $email "@" -}}
+{{- $isJa := eq ($.Page.Lang) "ja" -}}
+<span class="email-copy" data-user="{{ index $parts 0 }}" data-domain="{{ index $parts 1 }}" data-tooltip-default="{{ if $isJa }}クリックしてコピー{{ else }}Click to copy{{ end }}" data-tooltip-copied="{{ if $isJa }}コピーしました！{{ else }}Copied!{{ end }}"></span>

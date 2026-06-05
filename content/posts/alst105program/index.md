@@ -95,7 +95,7 @@ categories:
      * * *
      
 11.  【お問い合わせ先】
-     -   (![contact](images/contact-A-T-300x28.png))
+     -   ({{< email "contact@sig-alst.jp" >}})
      -   古池謙人（東京理科大学）
 
 13.  【入会のご案内】

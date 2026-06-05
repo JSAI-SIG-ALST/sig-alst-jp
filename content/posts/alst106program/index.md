@@ -154,7 +154,7 @@ categories:
 * * *
 
 1.  1.  【お問い合わせ先】
-        -   (![contact](images/contact-A-T-300x28.png))
+        -   ({{< email "contact@sig-alst.jp" >}})
         -   山本 頼弥（静岡大学）
 
 1.  1.  【入会のご案内】
