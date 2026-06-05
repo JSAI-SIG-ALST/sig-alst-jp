@@ -76,7 +76,8 @@ content:
     fields:
       - { name: title, label: タイトル, type: string }
       - { name: date,  label: 日付,     type: date }
-      - { name: body,  label: 本文, type: rich-text }
+      # 本文に cta ショートコードを含むため rich-text ではなくソース編集
+      - { name: body,  label: 本文（cta ショートコードを含む）, type: code, options: { format: markdown } }
 
   - name: page-links
     label: 「関連サイトへのリンク」ページ

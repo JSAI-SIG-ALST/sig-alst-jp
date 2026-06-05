@@ -1,0 +1,24 @@
+<section class="join-cta">
+	<div class="cta-box">
+		{{ with .Get "title" }}
+		<h2>{{ . }}</h2>
+		{{ end }}
+		{{ with .Get "description" }}
+		<p>{{ . | safeHTML }}</p>
+		{{ end }}
+		{{ if and (.Get "button_text") (.Get "button_link") }}
+		{{ $link := .Get "button_link" }}
+		{{ if hasPrefix $link "clipboard:" }}
+		{{ $parts := split (strings.TrimPrefix "clipboard:" $link) "@" }}
+		<button class="cta-button email-copy" data-user="{{ index $parts 0 }}" data-domain="{{ index $parts 1 }}" data-tooltip-default="{{ .Get "button_text" }}" data-tooltip-copied="{{ .Get "button_copied" | default "Copied!" }}">{{ .Get "button_text" }}</button>
+		{{ else }}
+		<a href="{{ $link }}" class="cta-button">{{ .Get "button_text" }}</a>
+		{{ end }}
+		{{ end }}
+		{{ with .Get "email" }}
+		{{ $parts := split . "@" }}
+		{{ $isJa := eq ($.Page.Lang) "ja" }}
+		<p class="cta-email"><strong>Email</strong>: <span class="email-copy" data-user="{{ index $parts 0 }}" data-domain="{{ index $parts 1 }}" data-tooltip-default="{{ if $isJa }}クリックしてコピー{{ else }}Click to copy{{ end }}" data-tooltip-copied="{{ if $isJa }}コピーしました！{{ else }}Copied!{{ end }}"></span></p>
+		{{ end }}
+	</div>
+</section>
