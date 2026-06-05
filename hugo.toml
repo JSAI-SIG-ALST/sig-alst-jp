@@ -53,7 +53,7 @@ enableRobotsTXT = true
   weight = 6
 
 [markup.goldmark.renderer]
-  unsafe = true   # WP由来の本文に生HTMLが含まれるため許可
+  unsafe = true        # WP由来の本文に生HTMLが含まれるため許可
 
 [services.rss]
   limit = 20
