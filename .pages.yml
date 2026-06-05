@@ -45,7 +45,7 @@ content:
       - { name: title, label: タイトル, type: string }
       - { name: date,  label: 日付,     type: date }
       # 装飾見出しが生HTMLのため rich-text では表示できない → ソース(Markdown/HTML)編集
-      - { name: body,  label: 本文（Markdown / HTMLソース）, type: code }
+      - { name: body,  label: 本文（Markdown / HTMLソース）, type: code, options: { format: markdown } }
 
   - name: page-awards
     label: 「表彰」ページ
@@ -56,7 +56,7 @@ content:
       - { name: title, label: タイトル, type: string }
       - { name: date,  label: 日付,     type: date }
       # 受賞一覧が生HTMLの表のため rich-text では表示できない → ソース(Markdown/HTML)編集
-      - { name: body,  label: 本文（Markdown / HTMLソース・受賞表）, type: code }
+      - { name: body,  label: 本文（Markdown / HTMLソース・受賞表）, type: code, options: { format: markdown } }
 
   - name: page-committee
     label: 「委員構成」ページ
