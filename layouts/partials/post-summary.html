@@ -4,11 +4,10 @@
   </header>
   <div class="entry-content">
     {{ if .Params.theme }}
-    <p>{{ with .Params.date_start }}【開催日】{{ partial "sig-date.html" . }}{{ end }}{{ with .Params.venue }}　／　【会場】{{ . }}{{ end }}</p>
-    <p><a class="more-link" href="{{ .RelPermalink }}">続きを読む <span class="meta-nav">»</span></a></p>
+      {{ partial "sig-event.html" . }}
+      {{ with .Content }}<div class="sig-note">{{ . }}</div>{{ end }}
     {{ else }}
-    {{ .Summary }}
-    {{ if .Truncated }}<p><a class="more-link" href="{{ .RelPermalink }}">続きを読む <span class="meta-nav">»</span></a></p>{{ end }}
+      {{ .Content }}
     {{ end }}
   </div>
   <footer class="entry-meta">
