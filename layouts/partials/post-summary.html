@@ -3,8 +3,8 @@
     <h1 class="entry-title"><a href="{{ .RelPermalink }}" rel="bookmark">{{ .Title }}</a></h1>
   </header>
   <div class="entry-content">
-    <p>{{ .Plain | truncate 110 }}</p>
-    <p><a class="more-link" href="{{ .RelPermalink }}">続きを読む <span class="meta-nav">»</span></a></p>
+    {{ .Summary }}
+    {{ if .Truncated }}<p><a class="more-link" href="{{ .RelPermalink }}">続きを読む <span class="meta-nav">»</span></a></p>{{ end }}
   </div>
   <footer class="entry-meta">
     <span class="entry-date">{{ .Date.Format "2006年1月2日" }}</span>
