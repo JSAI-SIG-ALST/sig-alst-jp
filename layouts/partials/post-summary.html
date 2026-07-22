@@ -3,8 +3,13 @@
     <h1 class="entry-title"><a href="{{ .RelPermalink }}" rel="bookmark">{{ .Title }}</a></h1>
   </header>
   <div class="entry-content">
+    {{ if .Params.theme }}
+    <p>{{ with .Params.date_start }}【開催日】{{ partial "sig-date.html" . }}{{ end }}{{ with .Params.venue }}　／　【会場】{{ . }}{{ end }}</p>
+    <p><a class="more-link" href="{{ .RelPermalink }}">続きを読む <span class="meta-nav">»</span></a></p>
+    {{ else }}
     {{ .Summary }}
     {{ if .Truncated }}<p><a class="more-link" href="{{ .RelPermalink }}">続きを読む <span class="meta-nav">»</span></a></p>{{ end }}
+    {{ end }}
   </div>
   <footer class="entry-meta">
     <span class="entry-date">{{ .Date.Format "2006年1月2日" }}</span>

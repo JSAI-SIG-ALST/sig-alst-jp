@@ -4,7 +4,12 @@
     <h1 class="entry-title" data-pagefind-meta="title">{{ .Title }}</h1>
   </header>
   <div class="entry-content">
-    {{ .Content }}
+    {{ if .Params.theme }}
+      {{ partial "sig-event.html" . }}
+      {{ with .Content }}<div class="sig-note">{{ . }}</div>{{ end }}
+    {{ else }}
+      {{ .Content }}
+    {{ end }}
   </div>
   {{ if eq .Section "posts" }}
   <footer class="entry-meta">

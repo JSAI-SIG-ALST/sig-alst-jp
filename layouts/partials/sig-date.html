@@ -1,0 +1,4 @@
+{{- /* 日付スロット（YYYY-MM-DD）を「2026年7月19日(日)」形式に整形して返す */ -}}
+{{- $d := time.AsTime . -}}
+{{- $wd := index (slice "日" "月" "火" "水" "木" "金" "土") (int $d.Weekday) -}}
+{{- printf "%d年%d月%d日(%s)" $d.Year (int $d.Month) $d.Day $wd -}}

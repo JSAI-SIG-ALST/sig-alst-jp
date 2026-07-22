@@ -10,7 +10,8 @@
     <div class="menu-container">
       <ul id="menu-main" class="nav-menu">
         {{ range site.Menus.main }}
-        <li{{ if $.IsMenuCurrent "main" . }} class="current-menu-item"{{ end }}><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+        {{ $current := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) (eq $.RelPermalink (.URL | relURL)) }}
+        <li{{ if $current }} class="current-menu-item"{{ end }}><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
         {{ end }}
       </ul>
     </div>

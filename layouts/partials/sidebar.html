@@ -1,23 +1,10 @@
 <div id="secondary" class="widget-area" role="complementary">
 
-  <aside id="nav_menu-2" class="widget widget_nav_menu">
-    <h3 class="widget-title">ALST研究会</h3>
-    <div class="menu-container">
-      <ul>
-        <li class="menu-item"><a href="{{ "/about/" | relURL }}">ALST研究会について</a></li>
-        <li class="menu-item"><a href="{{ "/awards/" | relURL }}">表彰</a></li>
-        <li class="menu-item"><a href="{{ "/committee/" | relURL }}">委員構成</a></li>
-        <li class="menu-item"><a href="{{ "/contact/" | relURL }}">お問い合わせ</a></li>
-        <li class="menu-item"><a href="{{ "/links/" | relURL }}">関連サイトへのリンク</a></li>
-      </ul>
-    </div>
-  </aside>
-
   <aside id="recent-posts-2" class="widget widget_recent_entries">
     <h3 class="widget-title">最近の投稿</h3>
     <ul>
       {{ range first 10 (where site.RegularPages "Section" "posts") }}
-      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      <li><a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ replaceRE `人工知能学会 (第[0-9０-９]+回) 先進的学習科学と工学研究会\(SIG-ALST\) (.+)` "$1 $2" .Title }}</a></li>
       {{ end }}
     </ul>
   </aside>

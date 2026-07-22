@@ -1,0 +1,94 @@
+{{- /* 構造化された cfp/program 記事を front matter スロットから生成する。
+       定型文（発表カテゴリ説明・若手奨励賞条件・資料集の注記・入会案内）はここで自動出力。 */ -}}
+{{- $isCfp := in .Params.categories "cfp" -}}
+{{- $isProg := in .Params.categories "program" -}}
+<div class="sig">
+
+  <dl class="sig-card">
+    <div class="sig-card-row"><dt>テーマ</dt><dd>{{ .Params.theme | default "一般" }}</dd></div>
+    {{- with .Params.date_start }}
+    <div class="sig-card-row"><dt>開催日</dt><dd>{{ partial "sig-date.html" . }}{{ with $.Params.date_end }} ～ {{ partial "sig-date.html" . }}{{ end }}</dd></div>
+    {{- end }}
+    {{- with .Params.venue }}
+    <div class="sig-card-row"><dt>会場</dt><dd>{{ . }}{{ with $.Params.venue_access_url }} <a href="{{ . }}">［アクセス］</a>{{ end }}
+      {{- with $.Params.venue_address }}<br><span class="sig-muted">{{ . }}</span>{{ end }}
+      {{- with $.Params.venue_host }}<br><span class="sig-muted">会場世話人：{{ . }}</span>{{ end }}</dd></div>
+    {{- end }}
+    {{- with .Params.format }}
+    <div class="sig-card-row"><dt>開催形式</dt><dd>{{ . }}{{ with $.Params.format_note }}<br><span class="sig-muted">※{{ . }}</span>{{ end }}</dd></div>
+    {{- end }}
+    {{- if or .Params.fee .Params.fee_items }}
+    <div class="sig-card-row"><dt>参加費</dt><dd>{{ with .Params.fee }}{{ . }}{{ end }}{{ with .Params.fee_items }}<ul class="sig-feelist">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>{{ end }}</dd></div>
+    {{- end }}
+    {{- if $isCfp }}{{- with .Params.deadlines }}
+    <div class="sig-card-row"><dt>締切</dt><dd class="sig-deadlines">
+      {{- range . }}{{ $dl := . }}
+      <div>{{ $dl.label }}：{{ with $dl.original_date }}<del>{{ partial "sig-date.html" . }}</del> → <strong>{{ partial "sig-date.html" $dl.date }}</strong>{{ else }}{{ partial "sig-date.html" $dl.date }}{{ end }}{{ with $dl.note }} <span class="sig-muted">{{ . }}</span>{{ end }}</div>
+      {{- end }}
+    </dd></div>
+    {{- end }}{{- end }}
+    {{- if $isProg }}{{- with .Params.registration_deadline }}
+    <div class="sig-card-row"><dt>参加登録締切</dt><dd><strong>{{ partial "sig-date.html" . }}</strong></dd></div>
+    {{- end }}{{- end }}
+  </dl>
+
+  {{- if $isCfp }}
+  <section class="sig-sec">
+    <h3 class="sig-h">発表カテゴリ</h3>
+    <ul class="sig-list">
+      <li><strong>一般セッション{{ if .Params.general_online }}（オンライン可）{{ end }}</strong><br>30分（発表20分＋質疑応答10分）の口頭発表を予定しています．<br>掲載原稿ページ数は原則6枚です．<br>6枚を超過した場合には追加原稿2枚を限度とし，追加原稿1枚につき2,000円の超過料金を頂きます．</li>
+      <li><strong>Work-in-Progress Posterセッション{{ if .Params.wipp_online }}（オンライン可）{{ else }}（オンライン不可・現地のみ）{{ end }}</strong><br>現在進行中の研究や，アイデア構想段階の研究を発展させるための発表を歓迎します．<br>5分の口頭発表＋1時間程度のポスター発表（A0サイズ）を予定しています．<br>掲載原稿ページ数は標準で4枚ですが，6枚までは無料で増ページを受け付けます．</li>
+    </ul>
+  </section>
+  <section class="sig-sec">
+    <h3 class="sig-h">発表申込</h3>
+    <ul class="sig-list">
+      <li><strong>発表申込フォーム（人工知能学会 受付管理システム） <a href="https://www.ai-gakkai.or.jp/sig-system/sigusers/presenter_add/alst/ALST{{ .Params.alst_no }}">こちら</a></strong></li>
+      <li>申込時には［若手奨励賞の対象］に第一著者が該当するかどうかを必ず確認してください．</li>
+      <li>選考対象となる条件は以下の通りです．<br>第一著者が次のいずれかに該当するものとする．<br>ア）大学や大学院等に在学中（社会人を含む）であること<br>イ）大学や大学院等を卒業・修了（博士課程単位取得退学を含む）後，5年が経過していないこと</li>
+    </ul>
+  </section>
+  {{- end }}
+
+  {{- if $isProg }}
+  <section class="sig-sec">
+    <h3 class="sig-h">参加申込</h3>
+    <ul class="sig-list">
+      {{- with .Params.registration_url }}<li>ALST{{ $.Params.alst_no }}参加登録フォーム（<a href="{{ . }}">こちら</a>）より行ってください。</li>{{ end }}
+    </ul>
+  </section>
+  {{- with .Params.jstage_date }}
+  <section class="sig-sec">
+    <h3 class="sig-h">資料集</h3>
+    <p class="sig-muted">※2025年度から個人会員向けの研究会資料（冊子）の郵送を廃止いたします。<br>※2025年度に発行された研究会資料集の冊子版は、電子版と同じ通販サイト(STORES)より購入いただくことができるようになりました。<br>※冊子版は販売数に限りがございますので、予めご了承ください。</p>
+    <ul class="sig-list">
+      <li><strong>ALST研究会会員</strong><br>– J-STAGE閲覧【<a href="https://www.jstage.jst.go.jp/browse/jsaialst/-char/ja">J-STAGE</a>】公開日：{{ partial "sig-date.html" . }}<br>– 発行後1年以内は要認証<br>– 認証のための購読者番号やパスワードをお忘れの方は、会員管理システム(SMOOSY)にログイン後「学会からのお知らせ」をご確認ください。</li>
+      <li><strong>賛助会員</strong><br>従来通り冊子を郵送します（発行日：{{ partial "sig-date.html" . }}以降）</li>
+      {{- with $.Params.student_form_url }}<li><strong>人工知能学会学生会員</strong><br>-電子版（無料・要申込）【<a href="{{ . }}">申込フォーム</a>】締切：{{ partial "sig-date.html" $.Params.student_deadline }}</li>{{ end }}
+      <li><strong>それ以外の方（どなたでも）</strong><br>通販サイト【<a href="https://jsaioffice.stores.jp/">STORES</a>】よりご購入いただけます。<br>-電子版: 1,650円（税込）<br>-冊子版: 2,200円（税込、送料・発送手数料込）<br>{{ with $.Params.stores_date }}※販売開始：{{ partial "sig-date.html" . }}<br>{{ end }}※冊子版の販売数には限りがございますのでお申し込み順となります。</li>
+    </ul>
+  </section>
+  {{- end }}
+  {{- with .Params.program }}
+  <section class="sig-sec">
+    <h3 class="sig-h">プログラム</h3>
+    {{ partial "sig-schedule.html" $ }}
+  </section>
+  {{- end }}
+  {{- end }}
+
+  <section class="sig-sec">
+    <h3 class="sig-h">お問い合わせ先</h3>
+    <ul class="sig-list">
+      <li>{{ with .Params.contact_name }}{{ . }} {{ end }}{{ with .Params.contact_email }}（{{ partial "sig-email.html" . }}）{{ end }}</li>
+    </ul>
+  </section>
+  <section class="sig-sec">
+    <h3 class="sig-h">入会のご案内</h3>
+    <ul class="sig-list">
+      <li>人工知能学会の会員でない方は，この機会に是非入会下さい．<br>オンライン入会は<a href="https://www.ai-gakkai.or.jp/about/membership/">こちら</a>から．</li>
+      <li>ALST研究会（第１種研究会）の入会は<a href="https://www.ai-gakkai.or.jp/sig/announce/sig-registeration/">こちら</a>を参照してください．<br>※登録資格は人工知能学会の個人会員および特殊購読会員となっています．</li>
+    </ul>
+  </section>
+
+</div>

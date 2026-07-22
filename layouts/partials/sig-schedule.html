@@ -1,0 +1,32 @@
+{{- /* program スロット（front matter）→ タイムテーブル。
+       セッションは種別ごとに連番（一般セッション1,2… / WIPPセッション1,2…）、
+       発表は全体通し番号（1)（2)…。WIPP はショートイントロ＋ポスターに対応。 */ -}}
+{{- $sc := newScratch -}}
+{{- $sc.Set "talk" 0 -}}
+<div class="sig-sched">
+{{- range .Params.program -}}
+  {{- $b := . -}}
+  {{- if eq $b.type "日付" -}}
+  <div class="sig-day">{{ with $b.date }}{{ partial "sig-date.html" . }}{{ else }}{{ $b.label }}{{ end }}</div>
+  {{- else -}}
+  {{- $isSession := or (eq $b.type "一般セッション") (eq $b.type "WIPPセッション") -}}
+  <div class="sig-slot{{ if $isSession }} is-session{{ end }}">
+    <div class="sig-slot-time">{{ $b.time }}</div>
+    <div class="sig-slot-body">
+      {{- if $isSession -}}
+        {{- $sc.Add (printf "n-%s" $b.type) 1 -}}
+        <p class="sig-slot-head">{{ $b.type }}{{ $sc.Get (printf "n-%s" $b.type) }}：{{ len $b.talks }}件{{ with $b.note }}（{{ . }}）{{ end }}</p>
+        {{- with $b.intro_time }}<p class="sig-slot-sub">（{{ . }}）ショートイントロダクション{{ with $b.intro_note }}（{{ . }}）{{ end }}</p>{{ end -}}
+        {{- range $b.talks -}}
+          {{- $sc.Add "talk" 1 -}}
+          <div class="sig-talk"><span class="sig-talk-no">（{{ $sc.Get "talk" }}）</span><span class="sig-talk-main"><span class="sig-talk-title">{{ .title }}</span><span class="sig-talk-auth">{{ .authors }}</span></span></div>
+        {{- end -}}
+        {{- with $b.poster_time }}<p class="sig-slot-sub">（{{ . }}）ポスター発表{{ with $b.poster_note }}（{{ . }}）{{ end }}</p>{{ end -}}
+      {{- else -}}
+        <p class="sig-slot-head is-plain">{{ with $b.label }}{{ . }}{{ else }}{{ $b.type }}{{ end }}</p>
+      {{- end -}}
+    </div>
+  </div>
+  {{- end -}}
+{{- end -}}
+</div>
