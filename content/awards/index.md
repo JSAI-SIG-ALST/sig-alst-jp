@@ -8,6 +8,10 @@ date: 2019-04-19
 <table>
   <tbody>
     <tr>
+      <td width="55" bgcolor="#f2f8ff" style="text-align:center; vertical-align:middle">2025年度</td>
+      <td style="padding-left:5px"><strong>記述回答自動採点は人間採点を超えたのか：テスト理論に基づく到達可能精度の上限推定</strong><br>受賞者：宇都 雅輝<br>発表日：2026年3月3日（ALST-106）</td>
+    </tr>
+    <tr>
       <td bgcolor="#fff9ea" style="text-align:center; vertical-align:middle">2024年度</td>
       <td style="padding-left:5px"><strong>質的および量的な解答プロセス分析による失敗の分類の試み：単文統合型作問学習環境におけるログ分析を例として</strong><br>受賞者：林 雄介，大﨑 理乃，濱田 恭佑，山本 樹，平嶋 宗<br>発表日：2024年12月20日（ALST-102）</td>
     </tr>
