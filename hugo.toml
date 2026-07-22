@@ -1,4 +1,4 @@
-baseURL = "https://dev.sig-alst.jp/"   # ステージング(HTTPS)。本番昇格時に https://sig-alst.jp/ へ
+baseURL = "https://sig-alst.jp/"   # ステージング(HTTPS)。本番昇格時に https://sig-alst.jp/ へ
 defaultContentLanguage = "ja"
 title = "先進的学習科学と工学研究会(ALST)"
 hasCJKLanguage = true
