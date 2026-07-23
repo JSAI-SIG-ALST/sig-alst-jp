@@ -7,13 +7,13 @@
 #   output: /uploads           # 公開URL上のパス
 
 content:
-  # ── 記事（発表募集 / 開催案内 / 委員構成 など）──────────────
-  # 画像同居のリーフバンドル: content/posts/<スラッグ>/index.md
-  - name: posts
-    label: 記事
+  # ══ 発表募集（cfp） content/posts/cfp/ ═══════════════════════════════
+  # 開催概要スロット＋cfp専用スロットのみ。program の欄は出ません。
+  - name: cfp
+    label: 発表募集
     type: collection
-    path: content/posts
-    filename: '{fields.slug}.md'   # 1記事 = 1ファイル（フラット）
+    path: content/posts/cfp
+    filename: '{fields.slug}.md'
     format: yaml-frontmatter
     view:
       primary: title
@@ -25,15 +25,8 @@ content:
       - { name: title, label: タイトル, type: string, required: true }
       - { name: date,  label: 日付,     type: date,   required: true }
       - { name: draft, label: 下書き,   type: boolean, default: false }
-      - name: categories
-        label: カテゴリ
-        type: select
-        list: true
-        options:
-          values: [cfp, program, committee]
-      # ══ 開催情報スロット（cfp / program 用。委員構成では空欄でOK）════════════
-      # ここを埋めると記事ページの「開催概要カード」「プログラム表」「定型文（発表カテゴリ・
-      # 若手奨励賞・資料集・入会案内）」が自動生成されます。theme を空にすると従来の本文表示。
+      - { name: categories, label: カテゴリ, type: select, list: true, default: [cfp], options: { values: [cfp, program, committee] } }
+      # ── 開催概要（空欄なら従来の本文表示にフォールバック） ──
       - { name: theme,   label: テーマ（例:一般。空欄なら従来の本文表示）, type: string }
       - { name: alst_no, label: 開催回（数字のみ 例:107）, type: number }
       - { name: date_start, label: 開催日, type: date }
@@ -52,8 +45,7 @@ content:
       - { name: fee_items, label: 参加費の内訳・合宿など（宿泊費・参加費を1行ずつ）, type: string, list: true }
       - { name: contact_name,  label: お問い合わせ担当（例:古池 謙人（神奈川大学））, type: string }
       - { name: contact_email, label: お問い合わせメール, type: string, default: contact@sig-alst.jp }
-
-      # ── cfp（発表募集）専用 ─────────────────────────────
+      # ── cfp 専用 ──
       - { name: general_online, label: 一般セッションはオンライン可, type: boolean, default: true }
       - { name: wipp_online,    label: WIPPはオンライン可,          type: boolean, default: false }
       - name: deadlines
@@ -65,8 +57,47 @@ content:
           - { name: date,  label: 日付, type: date }
           - { name: original_date, label: 延長前の日付（延長した場合のみ）, type: date }
           - { name: note,  label: 補足（例:※延長しました）, type: string }
+      - { name: body, label: 本文（自由記述メモ・旧形式）, type: code, options: { format: markdown } }
 
-      # ── program（開催案内）専用 ──────────────────────────
+  # ══ 開催案内（program） content/posts/program/ ═══════════════════════
+  # 開催概要スロット＋program専用スロットのみ。cfp の欄は出ません。
+  - name: program
+    label: 開催案内
+    type: collection
+    path: content/posts/program
+    filename: '{fields.slug}.md'
+    format: yaml-frontmatter
+    view:
+      primary: title
+      sort: date
+      order: desc
+      fields: [title, date, draft]
+    fields:
+      - { name: slug,  label: スラッグ（URL・半角英数とハイフン）, type: string, required: true }
+      - { name: title, label: タイトル, type: string, required: true }
+      - { name: date,  label: 日付,     type: date,   required: true }
+      - { name: draft, label: 下書き,   type: boolean, default: false }
+      - { name: categories, label: カテゴリ, type: select, list: true, default: [program], options: { values: [cfp, program, committee] } }
+      # ── 開催概要（空欄なら従来の本文表示にフォールバック） ──
+      - { name: theme,   label: テーマ（例:一般。空欄なら従来の本文表示）, type: string }
+      - { name: alst_no, label: 開催回（数字のみ 例:107）, type: number }
+      - { name: date_start, label: 開催日, type: date }
+      - { name: date_end,   label: 開催日・最終日（合宿など複数日のみ）, type: date }
+      - { name: venue,           label: 会場, type: string }
+      - { name: venue_address,   label: 住所, type: string }
+      - { name: venue_access_url, label: アクセスURL, type: string }
+      - { name: venue_host,      label: 会場世話人, type: string }
+      - name: format
+        label: 開催形式
+        type: select
+        options:
+          values: [対面, オンライン, ハイブリッド]
+      - { name: format_note, label: 開催形式の補足（例:一般セッションはオンライン参加可）, type: string }
+      - { name: fee, label: 参加費（例:無料）, type: string }
+      - { name: fee_items, label: 参加費の内訳・合宿など（宿泊費・参加費を1行ずつ）, type: string, list: true }
+      - { name: contact_name,  label: お問い合わせ担当（例:古池 謙人（神奈川大学））, type: string }
+      - { name: contact_email, label: お問い合わせメール, type: string, default: contact@sig-alst.jp }
+      # ── program 専用 ──
       - { name: registration_url,      label: 参加登録フォームURL, type: string }
       - { name: registration_deadline, label: 参加登録締切,        type: date }
       - { name: jstage_date,      label: 資料集 J-STAGE公開日,        type: date }
@@ -100,9 +131,27 @@ content:
             fields:
               - { name: title,   label: 題目, type: string }
               - { name: authors, label: 著者, type: string }
+      - { name: body, label: 本文（自由記述メモ・送迎バス追記など・旧形式）, type: code, options: { format: markdown } }
 
-      # 本文：旧形式の記事・委員構成、または開催情報カードの下に出す自由記述メモ（送迎バス追記など）
-      - { name: body, label: 本文（自由記述メモ・旧形式・委員構成）, type: code, options: { format: markdown } }
+  # ══ 委員構成（committee） content/posts/committee/ ═══════════════════
+  - name: committee
+    label: 委員構成
+    type: collection
+    path: content/posts/committee
+    filename: '{fields.slug}.md'
+    format: yaml-frontmatter
+    view:
+      primary: title
+      sort: date
+      order: desc
+      fields: [title, date, draft]
+    fields:
+      - { name: slug,  label: スラッグ（URL・半角英数とハイフン）, type: string, required: true }
+      - { name: title, label: タイトル, type: string, required: true }
+      - { name: date,  label: 日付,     type: date,   required: true }
+      - { name: draft, label: 下書き,   type: boolean, default: false }
+      - { name: categories, label: カテゴリ, type: select, list: true, default: [committee], options: { values: [cfp, program, committee] } }
+      - { name: body, label: 本文（委員一覧。Markdown / HTMLソース）, type: code, options: { format: markdown } }
 
   # ── 固定ページ（1メニュー「固定ページ」にまとめる: type: group）──────
   - name: pages
