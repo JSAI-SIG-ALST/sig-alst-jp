@@ -29,8 +29,8 @@ content:
       # ── 開催概要（空欄なら従来の本文表示にフォールバック） ──
       - { name: theme,   label: テーマ（例:一般。空欄なら従来の本文表示）, type: string }
       - { name: alst_no, label: 開催回（数字のみ 例:107）, type: number }
-      - { name: date_start, label: 開催日, type: date }
-      - { name: date_end,   label: 開催日・最終日（合宿など複数日のみ）, type: date }
+      - { name: date_start, label: 開催日, type: date, default: "" }
+      - { name: date_end,   label: 開催日・最終日（合宿など複数日のみ）, type: date, default: "" }
       - { name: venue,           label: 会場, type: string }
       - { name: venue_address,   label: 住所, type: string }
       - { name: venue_access_url, label: アクセスURL, type: string }
@@ -54,8 +54,8 @@ content:
         list: true
         fields:
           - { name: label, label: 名称（例:発表申込締切）, type: string }
-          - { name: date,  label: 日付, type: date }
-          - { name: original_date, label: 延長前の日付（延長した場合のみ）, type: date }
+          - { name: date,  label: 日付, type: date, default: "" }
+          - { name: original_date, label: 延長前の日付（延長した場合のみ）, type: date, default: "" }
           - { name: note,  label: 補足（例:※延長しました）, type: string }
       - { name: body, label: 本文（自由記述メモ・旧形式）, type: code, options: { format: markdown } }
 
@@ -81,8 +81,8 @@ content:
       # ── 開催概要（空欄なら従来の本文表示にフォールバック） ──
       - { name: theme,   label: テーマ（例:一般。空欄なら従来の本文表示）, type: string }
       - { name: alst_no, label: 開催回（数字のみ 例:107）, type: number }
-      - { name: date_start, label: 開催日, type: date }
-      - { name: date_end,   label: 開催日・最終日（合宿など複数日のみ）, type: date }
+      - { name: date_start, label: 開催日, type: date, default: "" }
+      - { name: date_end,   label: 開催日・最終日（合宿など複数日のみ）, type: date, default: "" }
       - { name: venue,           label: 会場, type: string }
       - { name: venue_address,   label: 住所, type: string }
       - { name: venue_access_url, label: アクセスURL, type: string }
@@ -99,11 +99,11 @@ content:
       - { name: contact_email, label: お問い合わせメール, type: string, default: contact@sig-alst.jp }
       # ── program 専用 ──
       - { name: registration_url,      label: 参加登録フォームURL, type: string }
-      - { name: registration_deadline, label: 参加登録締切,        type: date }
-      - { name: jstage_date,      label: 資料集 J-STAGE公開日,        type: date }
+      - { name: registration_deadline, label: 参加登録締切,        type: date, default: "" }
+      - { name: jstage_date,      label: 資料集 J-STAGE公開日,        type: date, default: "" }
       - { name: student_form_url, label: 資料集 学生電子版フォームURL, type: string }
-      - { name: student_deadline, label: 資料集 学生電子版締切,       type: date }
-      - { name: stores_date,      label: 資料集 STORES販売開始日,      type: date }
+      - { name: student_deadline, label: 資料集 学生電子版締切,       type: date, default: "" }
+      - { name: stores_date,      label: 資料集 STORES販売開始日,      type: date, default: "" }
       - name: program
         label: プログラム（タイムテーブル）
         type: object
@@ -118,7 +118,7 @@ content:
               values: [一般セッション, WIPPセッション, 日付, 開会挨拶, 閉会の挨拶, 休憩, 昼休み, 専門委員会, その他]
           - { name: time,  label: 時刻（例:11:00-12:00）, type: string }
           - { name: label, label: 表示名（種別=その他/日付で任意に指定するとき）, type: string }
-          - { name: date,  label: 日付（種別=日付のとき）, type: date }
+          - { name: date,  label: 日付（種別=日付のとき）, type: date, default: "" }
           - { name: note,  label: セッション補足（例:発表20分，質疑10分）, type: string }
           - { name: intro_time,  label: WIPP ショートイントロ 時間帯（例:17:20-17:35）, type: string }
           - { name: intro_note,  label: WIPP ショートイントロ 補足（例:各3分）, type: string }
