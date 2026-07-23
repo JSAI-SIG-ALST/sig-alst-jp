@@ -54,8 +54,8 @@ content:
         list: true
         fields:
           - { name: label, label: 名称（例:発表申込締切）, type: string }
-          - { name: date,  label: 日付, type: date, default: "" }
-          - { name: original_date, label: 延長前の日付（延長した場合のみ）, type: date, default: "" }
+          - { name: date,  label: 締切日, type: date, default: "" }
+          - { name: extended_date, label: 延長後の締切（延長時のみ入力・空欄=延長なし）, type: date, default: "" }
           - { name: note,  label: 補足（例:※延長しました）, type: string }
       - { name: body, label: 本文（自由記述メモ・旧形式）, type: code, options: { format: markdown } }
 

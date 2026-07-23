@@ -23,7 +23,7 @@
     {{- if $isCfp }}{{- with .Params.deadlines }}
     <div class="sig-card-row"><dt>締切</dt><dd class="sig-deadlines">
       {{- range . }}{{ $dl := . }}
-      <div>{{ $dl.label }}：{{ with $dl.original_date }}<del>{{ partial "sig-date.html" . }}</del> → <strong>{{ partial "sig-date.html" $dl.date }}</strong>{{ else }}{{ partial "sig-date.html" $dl.date }}{{ end }}{{ with $dl.note }} <span class="sig-muted">{{ . }}</span>{{ end }}</div>
+      <div>{{ $dl.label }}：{{ with $dl.extended_date }}<del>{{ partial "sig-date.html" $dl.date }}</del> → <strong>{{ partial "sig-date.html" . }}</strong>{{ else }}{{ with $dl.date }}{{ partial "sig-date.html" . }}{{ end }}{{ end }}{{ with $dl.note }} <span class="sig-muted">{{ . }}</span>{{ end }}</div>
       {{- end }}
     </dd></div>
     {{- end }}{{- end }}

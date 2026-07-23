@@ -18,8 +18,8 @@ general_online: true
 wipp_online: false
 deadlines:
   - label: 発表申込締切
-    date: 2026-05-31
-    original_date: 2026-05-24
+    date: 2026-05-24
+    extended_date: 2026-05-31
     note: ※延長しました
   - label: 原稿提出締切
     date: 2026-06-21
