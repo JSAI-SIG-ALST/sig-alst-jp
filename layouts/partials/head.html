@@ -4,6 +4,8 @@
 <title>{{ if .IsHome }}{{ site.Title }} | {{ site.Params.description }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
 {{ with (or .Description site.Params.description) }}<meta name="description" content="{{ . }}">{{ end }}
 <link rel="canonical" href="{{ .Permalink }}">
+{{/* /posts/ はホーム(/)とほぼ同一のため noindex。canonical は自己参照のまま（noindex + 他URLへのcanonical併用は避ける）。 */}}
+{{ if and (eq .Kind "section") (eq .Section "posts") }}<meta name="robots" content="noindex">{{ end }}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&subset=latin,latin-ext">
 <link rel="stylesheet" href="{{ "css/twentytwelve.css" | relURL }}">
