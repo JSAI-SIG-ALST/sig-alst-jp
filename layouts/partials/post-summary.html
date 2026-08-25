@@ -7,7 +7,8 @@
       {{ partial "sig-event.html" . }}
       {{ with .Content }}<div class="sig-note">{{ . }}</div>{{ end }}
     {{ else }}
-      {{ .Content }}
+      <div class="entry-summary">{{ .Summary }}</div>
+      {{ if .Truncated }}<p><a class="more-link" href="{{ .RelPermalink }}">続きを読む →</a></p>{{ end }}
     {{ end }}
   </div>
   <footer class="entry-meta">

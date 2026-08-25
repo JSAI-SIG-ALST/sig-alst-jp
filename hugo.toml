@@ -4,6 +4,7 @@ title = "先進的学習科学と工学研究会(ALST)"
 hasCJKLanguage = true
 enableEmoji = true
 enableRobotsTXT = true
+summaryLength = 60   # hasCJKLanguage=true のため、日本語では約60「文字」相当
 
 [languages]
   [languages.ja]
