@@ -22,6 +22,8 @@ wipp_online: false
 deadlines:
   - label: 発表申込締切
     date: 2026-09-18
+    extended_date: 2026-09-25
+    note: ※延長しました
   - label: 原稿提出締切
     date: 2026-10-09
     note: （出版物の準備がありますので一切の延長はありません）
