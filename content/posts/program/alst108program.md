@@ -2,7 +2,7 @@
 slug: alst108program
 title: 人工知能学会 第108回 先進的学習科学と工学研究会(SIG-ALST) 開催案内
 date: 2026-10-10
-draft: true
+draft: false
 categories:
   - program
 theme: 一般
