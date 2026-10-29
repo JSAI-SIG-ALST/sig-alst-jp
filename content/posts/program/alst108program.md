@@ -8,7 +8,7 @@ categories:
 theme: 一般
 alst_no: 108
 date_start: 2026-11-07
-venue: 千葉工業大学
+venue: 千葉工業大学　津田沼キャンパス ７号館７階 メディア実験室
 venue_address: 〒275-0016 千葉県習志野市津田沼2-17-1
 venue_access_url: https://chibatech.ac.jp/about/institute/campus/tsudanuma.html
 venue_host: 東本崇仁（千葉工業大学）
