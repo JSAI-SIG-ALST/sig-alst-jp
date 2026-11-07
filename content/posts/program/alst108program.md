@@ -19,6 +19,10 @@ contact_name: 加藤 嘉浩（ベネッセ教育総合研究所）
 contact_email: contact@sig-alst.jp
 registration_url: https://www.ai-gakkai.or.jp/sig-system/sigusers/add/alst/ALST108
 registration_deadline: 2026-11-05
+jstage_date: 2026-10-26
+student_form_url: https://forms.gle/TsVgR758LqQFjYru8
+student_deadline: 2026-10-25
+stores_date: 2026-10-26
 program:
   - type: 開会挨拶
     time: 12:50-13:00
@@ -42,6 +46,7 @@ program:
     time: 15:15-15:30
   - type: WIPPセッション
     time: 15:30-16:30
+    intro_time: 15:30-15:45
     talks:
       - title: 情報科学論文の統合的な前提知識提供による読解支援システムの開発
         authors: 大西	耕介（早稲田大学 ），菊池英明（早稲田大学）
