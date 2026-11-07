@@ -45,7 +45,7 @@ program:
   - type: 休憩
     time: 15:15-15:30
   - type: WIPPセッション
-    time: 15:45-16:40
+    time: 15:30-16:40
     intro_time: 15:30-15:45
     talks:
       - title: 情報科学論文の統合的な前提知識提供による読解支援システムの開発
