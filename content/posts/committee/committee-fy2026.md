@@ -1,16 +1,16 @@
 ---
-slug: "committee-fy2026"
-title: "2026年度 委員構成"
+slug: committee-fy2026
+title: 2026年度 委員構成
 date: 2026-04-15
-categories: 
-  - "committee"
+draft: false
+categories:
+  - committee
 ---
-
 -   主査
     -   東本 崇仁（千葉工業大学）
 -   幹事
     -   古池 謙人（神奈川大学）※主幹事
-    -   田和辻 可昌（東京大学）
+    -   田和辻 可昌（千葉工業大学）
     -   山本 頼弥（静岡大学）
     -   加藤 嘉浩（ベネッセ教育総合研究所）
 -   専門委員（50音順）
